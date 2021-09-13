@@ -1,27 +1,39 @@
 package com.example.invent;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Product {
-    private String productId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
+    private Long id;
+
+    @Column(name="PRODUCTNAME")
     private String productName;
+
+    @Column(name="EXPIRYDATE")
     private String expiryDate;
+
+    @Column(name="PRODUCTCATEGORY")
     private String productCategory;
 
-    public Product(String productId, String productName, String expiryDate, String productCategory) {
-        this.productId = productId;
+    public Product() {
+    }
+
+    public Product(Long id, String productName, String expiryDate, String productCategory) {
+        this.id = id;
         this.productName = productName;
         this.expiryDate = expiryDate;
         this.productCategory = productCategory;
     }
 
-    public String getProductId() {
-        return productId;
+    public Long getId() {
+        return id;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getProductName() {

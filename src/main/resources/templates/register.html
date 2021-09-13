@@ -7,8 +7,12 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../bootstrap.css" th:href="'/bootstrap.css'">
@@ -22,17 +26,26 @@
 <form class="form-signin" method="post" action="/register">
     <h1 class="h3 mb-3 fw-normal">Register</h1>
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="email" id="email" placeholder="Email">
-        <label for="email" class="form-label">email</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name">
+        <label for="firstName" class="form-label">First Name</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name">
+        <label for="lastName" class="form-label">Last Name</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="username" id="username" placeholder="username">
+        <label for="username" class="form-label">Email</label>
     </div>
     <br>
     <div class="form-floating">
-        <input type="text" class="form-control" name="password" id="password" placeholder="Password">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
         <label for="password">Password</label>
-
     </div>
     <br>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+
+    <div th:if="${message!=null}" th:text="${message}"></div>
 </form>
 
 </body>

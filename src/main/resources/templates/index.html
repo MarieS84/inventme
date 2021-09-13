@@ -7,8 +7,12 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../bootstrap.css" th:href="'/bootstrap.css'">
@@ -25,63 +29,59 @@ $(function(){
 </script>
 <div class="container">
 
-<h1>Invent Me</h1>
+    <h1>Invent Me</h1>
 
     <br>
-    <form method="post" action="/">
-    <div class="row">
-        <div class="col-4">
-    <div class="form-group">
-        <label for="exampleSelect1" class="form-label mt-3">Product Category</label>
-        <select class="form-select" id="exampleSelect1" name="productCategory">
-            <option>Dairy Products</option>
-            <option>Dry Goods</option>
-        </select>
-    </div>
-        </div>
-        <div class="col-4">
-    <div class="form-group">
-        <label for="exampleSelect1" class="form-label mt-3">Enter Product</label>
-        <input type="text" class="form-control" name="item" placeholder="Default input" id="inputDefault">
+    <form method="post" action="/" th:object="${product}">
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-3">Product Category</label>
+                    <select th:field="*{productCategory}" class="form-select" id="exampleSelect1" name="productCategory">
+                        <option th:value="DairyProducts">Dairy Products</option>
+                        <option th:value="DryGoods">Dry Goods</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-3">Enter Product</label>
+                    <input type="text" class="form-control" name="item" placeholder="Default input" id="inputDefault" th:field="*{productName}">
 
-    </div>
-</div>
-        <div class="col-4">
-            <div class="form-group">
-                <label for="exampleSelect1" class="form-label mt-3">Enter Expiry Date</label>
-                <input type="text" class="form-control" name="expiryDate" placeholder="Default input" id="Default">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-3">Enter Expiry Date</label>
+                    <input type="text" class="form-control" name="expiryDate" placeholder="Default input" id="Default" th:field="*{expiryDate}">
 
+                </div>
+            </div>
+            <div></div>
+            <div class="col-4">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info">Add</button>
+                </div>
             </div>
         </div>
-        <div></div>
-        <div class="col-4">
-            <div class="form-group">
-                <button type="submit" class="btn btn-info">Add</button>
-            </div>
-        </div>
-    </div>
     </form>
+
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Product Category</th>
-            <th scope="col">Product</th>
-            <th scope="col">Expiry Date</th>
+            <th>Product Category</th>
+            <th>Product</th>
+            <th>Expiry Date</th>
+
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td scope="col" th:each="item : ${session.list}" th:text="${productCategory}"></td>
+        <tr th:each="product : ${session.products}">
+            <td th:text="${product.productCategory}"></td>
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.expiryDate}"></td>
+
         </tr>
-        <tr>
-            <td scope="col" th:each="item : ${session.list}" th:text="${item}"></td>
-        </tr>
-        <tr>
-            <td scope="col" th:each="item : ${session.list}" th:text="${expiryDate}"></td>
-        </tr>
-        </tbody>
     </table>
-    </div>
 
 </div>
 
