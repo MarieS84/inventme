@@ -21,10 +21,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/",
                         "/css/**",
+                        "/resources/**",
                         "/js/**",
+                        "/static",
+                        "/bootstrap",
+                        "/style",
                         "/register",
                         "/navbar",
-                        "/h2"
+                        "/h2",
+                        "/h2/**"
                 ).permitAll()
                 .antMatchers().hasAuthority("USER")
                 .anyRequest().authenticated()

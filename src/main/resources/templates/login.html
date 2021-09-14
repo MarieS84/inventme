@@ -15,9 +15,11 @@
           crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../bootstrap.css" th:href="'/bootstrap.css'">
+  <link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 <body>
+<header th:insert="/header :: header"></header>
+<div class="container">
 
 <form class="form-signin" method="post" th:action="@{/login}">
   <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
@@ -34,6 +36,6 @@
   <br>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
 </form>
-
+</div>
 </body>
 </html>
