@@ -16,22 +16,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body id="page">
 <header th:insert="/header :: header"></header>
 <div class="container">
 
-    <h1>Invent Me</h1>
+    <h1>Add your groceries!</h1>
 
     <br>
-    <form method="post" action="/" th:object="${product}">
+    <form method="post" action="/invent" th:object="${product}">
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
                     <label for="exampleSelect1" class="form-label mt-3">Product Category</label>
                     <select th:field="*{productCategory}" class="form-select" id="exampleSelect1" name="productCategory">
-                        <option th:value="DairyProducts">Dairy Products</option>
-                        <option th:value="DryGoods">Dry Goods</option>
+                        <option value="Dairy Products">Dairy Products</option>
+                        <option value="Dry Goods">Dry Goods</option>
                     </select>
                 </div>
             </div>
@@ -45,7 +46,7 @@
             <div class="col-4">
                 <div class="form-group">
                     <label for="exampleSelect1" class="form-label mt-3">Enter Expiry Date</label>
-                    <input type="text" class="form-control" name="expiryDate" placeholder="Default input" id="Default" th:field="*{expiryDate}">
+                    <input type="date" class="form-control" name="expiryDate" placeholder="Default input" id="Default" th:field="*{expiryDate}">
 
                 </div>
             </div>

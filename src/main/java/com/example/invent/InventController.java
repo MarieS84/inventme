@@ -21,16 +21,20 @@ public class InventController {
     ProductRepository productRepository;
 
     @GetMapping("/")
-    public String goToHomePage(Model model) {
+    public String goToHomePage(){
+        return "start";
+    }
+
+    @GetMapping("/invent")
+    public String goToInventMe(Model model) {
         model.addAttribute("product", new Product());
-        return "index";
+        return "invent";
     }
 
 
-    @PostMapping("/")
+    @PostMapping("/invent")
     String addProduct(HttpSession session, Product product){
         List<Product> products = (List<Product>)session.getAttribute("products");
-        //List<Product> products = (List<Product>)productService.getAllProducts();
         if (products== null){
             products = new ArrayList<>();
             session.setAttribute("products", products);
@@ -40,6 +44,6 @@ public class InventController {
         productService.addProductToRepository(product);
         products.add(product);
 
-        return "index";
+        return "invent";
     }
 }

@@ -28,7 +28,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/style",
                         "/register",
                         "/navbar",
+                        "/invent",
                         "/h2",
+                        "/img/**",
                         "/h2/**"
                 ).permitAll()
                 .antMatchers().hasAuthority("USER")
@@ -36,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/logout")
+                .logoutSuccessUrl("/")
                 .and()
                 .formLogin()
                 .loginPage("/login")
